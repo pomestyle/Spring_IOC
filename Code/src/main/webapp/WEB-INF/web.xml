@@ -1,0 +1,24 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>tomcat启动时候启动IOC容器</display-name>
+
+
+    <!--    <context-param>
+            <param-name>transferService</param-name>
+            <param-value>com.udeam.edu.service.impl.TransferServiceImpl</param-value>
+        </context-param>-->
+
+
+    <listener>
+        <!-- 启动容器-->
+        <!--      注解实现-->
+        <listener-class>com.udeam.edu.factory.impl.AnnotationBeanFactory</listener-class>
+        <!--    xml实现ioc-->
+        <!--    <listener-class>com.udeam.edu.factory.impl.ClassPathXmlBeanFactory</listener-class>-->
+    </listener>
+
+
+</web-app>

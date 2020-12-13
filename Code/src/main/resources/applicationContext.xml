@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--spring xml 约束头 bean 等配置约束头-->
+
+    <!--    accountDao 配置必须先放在transferService之前，因为解析时候再类加载阶段，servlet中getBean时 transferService 已经实例化，此时 accountDao 会是null值-->
+    <bean id="accountDao" class="com.udeam.edu.dao.impl.JdbcAccountDaoImpl">
+    </bean>
+
+    <bean id="transferService" class="com.udeam.edu.service.impl.TransferServiceImpl">
+        <property name="AccountDao" ref="accountDao"></property>
+    </bean>
+
+
+</beans>
